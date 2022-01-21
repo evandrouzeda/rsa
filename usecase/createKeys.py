@@ -36,6 +36,26 @@ def xgcd(a, b):
 
     return a, old_x, old_y
 
+def getE(t):
+    """
+    Return a number that is greater than 1 and is co-prime of t
+    """
+    i=2
+    while(gcd(i, t) != 1):
+        i += 1
+    return i
+
+def getD(e, t):
+    """
+    Return a number that inverse of e and also co-prime of t
+    """
+    g, x, y = xgcd(e, t)
+    if(x < 0):
+        d = x + t
+    else: 
+        d = x
+    return d
+
 class CreateKeys:
     def __init__(self) -> None:
         pass
@@ -47,15 +67,7 @@ class CreateKeys:
         print("Prime q: ", q)
         n = p * q
         t = (p-1)*(q-1)
-
-        i=2
-        while(gcd(i, t) != 1):
-            i += 1
-        e=i
-        g, x, y = xgcd(e, t)
-        if(x < 0):
-            d = x + t
-        else: 
-            d = x
+        e = getE(t)
+        d = getD(e, t)
 
         return Crypto(n, e, d)
