@@ -1,4 +1,4 @@
-from usecase.createKeys import xgcd
+from usecase.createKeys import xgcd, getD
 from entity.crypto import Crypto
 
 class GenerateKeysFromPublic:
@@ -7,11 +7,6 @@ class GenerateKeysFromPublic:
 
     def execute(p, q, e, n):
         t = (p-1)*(q-1)
-
-        g, x, y = xgcd(e, t)
-        if(x < 0):
-            d = x + t
-        else: 
-            d = x
+        d = getD(e, t)
 
         return Crypto(n, e, d)
