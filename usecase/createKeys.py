@@ -40,11 +40,11 @@ class CreateKeys:
     def __init__(self) -> None:
         pass
 
-    def execute():
-        p = getPrime(1,30)
-        q = getPrime(p+1,p+30)
-        print(p)
-        print(q)
+    def execute(min, max):
+        p = getPrime(min, max)
+        q = getPrime(p+min,p+max)
+        print("Prime p: ", p)
+        print("Prime q: ", q)
         n = p * q
         t = (p-1)*(q-1)
 

@@ -4,7 +4,7 @@
 from usecase.createKeys import CreateKeys
 
 
-keys = CreateKeys.execute()
+keys = CreateKeys.execute(1, 30)
 print("N: ", keys.n)
 print("E: ", keys.e)
 print("D: ", keys.d)

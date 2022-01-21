@@ -6,7 +6,7 @@ To run you will need to install miller-rabin package:
 pip install miller-rabin
 ```
 
-Probably you will need to install C/C++ compilers and libs too:
+Probably you will need to install C/C++ compiler and libs too:
 
 ```
 apt install gcc
